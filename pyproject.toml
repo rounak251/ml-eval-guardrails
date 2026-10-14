@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ml-eval-guardrails"
+version = "0.1.0"
+description = "Checks that catch leaky splits, weak graders, non-determinism and metric-blind decoding"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Rounak Choudhary"}]
+dependencies = ["numpy", "scikit-learn"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools]
+packages = ["guardrails"]
