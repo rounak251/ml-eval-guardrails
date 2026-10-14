@@ -7,7 +7,7 @@ from guardrails import adversarial_validation, check_grader_baselines, cv_gap, d
 
 rng = np.random.default_rng(0)
 
-# 1. Hidden groups: the label belongs to the capture session, not the sample.
+# 1. Hidden groups: the label belongs to the recording session, not the sample.
 g = np.repeat(np.arange(12), 40)
 X = rng.normal(scale=5, size=(12, 4))[g] + rng.normal(scale=0.3, size=(480, 4))
 y = rng.integers(0, 2, 12)[g]
