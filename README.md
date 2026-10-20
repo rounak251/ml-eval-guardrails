@@ -57,4 +57,12 @@ pytest -q
 5. Does adversarial validation show a shift I haven't modelled?
 6. Is the decoded output optimal for the metric, not just for the loss?
 
+## Limitations
+
+- `discover_groups` clusters the nuisance features you give it (agglomerative clustering). It can only find groups those features reveal, and `distance_threshold` needs tuning per dataset.
+- Adversarial validation shows *that* train and test differ and which features drive it. It does not tell you whether the shift hurts your model's score.
+- `check_determinism` compares output files byte for byte across runs on one machine. GPU non-determinism only shows up if you run it on a GPU.
+- `expected_f1_set` assumes calibrated, independent label probabilities. Correlated labels or a miscalibrated model break that assumption.
+- The demo uses synthetic data. The next step is case studies on public datasets where a leaky split is known to have happened.
+
 MIT licensed.
